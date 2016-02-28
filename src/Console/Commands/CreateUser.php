@@ -2,7 +2,7 @@
 
 namespace Askedio\Laravel5RBAC\Console\Commands;
 
-use App\User;
+use Askedio\Laravel5RBAC\User;
 use Illuminate\Console\Command;
 use Spatie\Permission\Models\Role;
 
