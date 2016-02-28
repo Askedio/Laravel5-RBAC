@@ -3,9 +3,7 @@
 namespace Askedio\Laravel5RBAC\Providers;
 
 use App;
-use Config;
 use Illuminate\Support\ServiceProvider;
-use Lang;
 
 class GenericServiceProvider extends ServiceProvider
 {
@@ -25,7 +23,6 @@ class GenericServiceProvider extends ServiceProvider
    */
   public function boot(\Illuminate\Routing\Router $router)
   {
-
       App::register('\Spatie\Permission\PermissionServiceProvider');
 
       $router->middleware('can', \Askedio\Laravel5RBAC\Http\Middleware\Authorize::class);
@@ -33,6 +30,5 @@ class GenericServiceProvider extends ServiceProvider
       if (!$this->app->routesAreCached()) {
           require realpath(__DIR__.'/../Http/routes.php');
       }
-
   }
 }
