@@ -2,8 +2,8 @@
 
 namespace Askedio\Laravel5RBAC\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\User;
+use Illuminate\Console\Command;
 use Spatie\Permission\Models\Role;
 
 class CreateUser extends Command
@@ -39,34 +39,31 @@ class CreateUser extends Command
      */
     public function handle()
     {
-
-
-
-       $name          = $this->ask('Name');
+        $name = $this->ask('Name');
 
         $check = true;
-        while($check == true){
-          $email = $this->ask('Email');
-          $check = User::where('email', '=', $email)->exists();
-          if($check) $this->error('Email already exists, try again.');
+        while ($check == true) {
+            $email = $this->ask('Email');
+            $check = User::where('email', '=', $email)->exists();
+            if ($check) {
+                $this->error('Email already exists, try again.');
+            }
         }
 
-       $password      = $this->secret('Password');
-       $admin_role    = $this->ask('Role [admin]') ? : 'admin';
+        $password = $this->secret('Password');
+        $admin_role = $this->ask('Role [admin]') ?: 'admin';
 
-      if ($this->confirm('Do you wish to setup this user? [y|N]')) {
-
-
+        if ($this->confirm('Do you wish to setup this user? [y|N]')) {
             $_user = User::create([
               'name'     => $name,
               'email'    => $email,
-              'password' => bcrypt($password)
+              'password' => bcrypt($password),
             ]);
 
-            if(!Role::where('name', '=', $admin_role)->exists()) $_role = Role::create(['name' => $admin_role]);
+            if (!Role::where('name', '=', $admin_role)->exists()) {
+                $_role = Role::create(['name' => $admin_role]);
+            }
             $_user->assignRole($admin_role);
-
-      }
-
+        }
     }
 }
