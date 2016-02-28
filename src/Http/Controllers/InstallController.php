@@ -2,32 +2,29 @@
 
 namespace Askedio\Laravel5RBAC\Http\Controllers;
 
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Illuminate\Routing\Controller as Controller;
-use App\User;
 use App;
+use App\User;
+use Illuminate\Routing\Controller as Controller;
+use Spatie\Permission\Models\Role;
 
 class InstallController extends Controller
 {
     public function index()
     {
-      if(!User::count()){
+        if (!User::count()) {
+            $role = Role::create(['name' => 'admin']);
 
-        $role = Role::create(['name' => 'admin']);
-
-        $user = User::create([
-            'name' => 'admin',
-            'email' => 'admin@test.com',
+            $user = User::create([
+            'name'     => 'admin',
+            'email'    => 'admin@test.com',
             'password' => bcrypt('password'),
         ]);
 
-        $user->assignRole('admin');
+            $user->assignRole('admin');
 
-        return 'Installed';
-
-      } else {
-        App::abort(404, 'Already Installed');
-      }
+            return 'Installed';
+        } else {
+            App::abort(404, 'Already Installed');
+        }
     }
 }
