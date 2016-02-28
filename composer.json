@@ -1,0 +1,16 @@
+{
+    "name": "askedio/laravel-vendor-package",
+    "description": "A Vendor Package Example",
+    "keywords": ["laravel"],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.2.*"
+     },
+    "autoload": {
+        "psr-4": {
+            "Askedio\\LaravelVendorPackage\\": "src/"
+        }
+    }
+}
