@@ -10,19 +10,25 @@ This Package simple glues together laravel-ermission and laravel-authorize for i
 
 
 # Installation
-
+## Install with composer
 ~~~
 composer require askedio/laravel5-rbac:dev-master
 ~~~
 
+## Add to Providers array in config/app.php
 ~~~
-Askedio\Laravel5RBAC\Providers\GenericServiceProvider::class,
+'providers' => [
+   Askedio\Laravel5RBAC\Providers\GenericServiceProvider::class,
+   ...
 ~~~
 
+## Serv
 ~~~ 
 php artisan serv
 ~~~
 
+
+## Install the role and user
 * Browse to http://localhost:8000/install
 * No users will create a new user
 ~~~
@@ -32,6 +38,7 @@ password
 
 Default role of admin is created and assigned. Use in web routes
 
+## Use in routes
 ~~~
 Route::get('dashboard', [
    'middleware'=> ['web','can:dashboard'],
