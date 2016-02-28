@@ -11,19 +11,19 @@ More details here:
 
 
 # Installation
-## Install with composer
+### Install with composer
 ~~~
 composer require askedio/laravel5-rbac:dev-master
 ~~~
 
-## Add to Providers array in config/app.php
+### Add to Providers array in config/app.php
 ~~~
 'providers' => [
    Askedio\Laravel5RBAC\Providers\GenericServiceProvider::class,
    ...
 ~~~
 
-## Set up auth views and migrations
+### Set up auth views and migrations
 ~~~
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
 php artisan make:auth
@@ -31,18 +31,19 @@ php artisan migrate
 ~~~
 
 
-## Serv
+### Install the role and user
+~~~
+php artisan user:create
+~~~
+
+### Serv
 ~~~ 
 php artisan serv
 ~~~
 
 
-## Install the role and user
-~~~
-php artisan user:create
-~~~
 
-## Use in routes
+### Use in routes
 ~~~
 Route::get('dashboard', [
    'middleware'=> ['web','can:admin'],
