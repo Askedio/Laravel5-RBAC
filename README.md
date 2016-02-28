@@ -3,7 +3,7 @@ User Roles &amp; Permissions for Laravel 5.2
 
 
 # Overview
-This Package simple glues together laravel-permission and laravel-authorize to be in one package giving you all the features and a simple install route to easily get started.
+This Package glues together laravel-permission and laravel-authorize to be one package giving you all the features and a simple install command to easily get started.
 
 More details here:
 * https://github.com/spatie/laravel-permission
