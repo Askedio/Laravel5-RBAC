@@ -38,14 +38,9 @@ php artisan serv
 
 
 ## Install the role and user
-* Browse to http://localhost:8000/install
-* No users will create a new user
 ~~~
-admin@test.com
-password
+php artisan user:create
 ~~~
-
-Default role of admin is created and assigned. Use in web routes
 
 ## Use in routes
 ~~~
