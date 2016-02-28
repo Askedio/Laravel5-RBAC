@@ -49,7 +49,7 @@ Default role of admin is created and assigned. Use in web routes
 ## Use in routes
 ~~~
 Route::get('dashboard', [
-   'middleware'=> ['web','can:dashboard'],
+   'middleware'=> ['web','can:admin'],
    'uses' => 'HomeController@index',
 ]);
 ~~~
