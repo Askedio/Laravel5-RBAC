@@ -3,8 +3,9 @@ User Roles &amp; Permissions for Laravel 5.2
 
 
 # Overview
-This Package simple glues together laravel-ermission and laravel-authorize for in one package giving you all their features and a simple install route to easily get started.
+This Package simple glues together laravel-permission and laravel-authorize for in one package giving you all the features and a simple install route to easily get started.
 
+More details here:
 * https://github.com/spatie/laravel-permission
 * https://github.com/spatie/laravel-authorize
 
@@ -21,6 +22,13 @@ composer require askedio/laravel5-rbac:dev-master
    Askedio\Laravel5RBAC\Providers\GenericServiceProvider::class,
    ...
 ~~~
+
+## Migrate
+~~~
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
+php artisan migrate 
+~~~
+
 
 ## Serv
 ~~~ 
