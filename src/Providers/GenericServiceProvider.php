@@ -14,18 +14,13 @@ class GenericServiceProvider extends ServiceProvider
    */
   public function register()
   {
-
-       $this->app->singleton('command.user.create', function($app) {
+      $this->app->singleton('command.user.create', function ($app) {
 
             return new \Askedio\Laravel5RBAC\Console\Commands\CreateUser();
         });
 
-        $this->commands('command.user.create');
-
+      $this->commands('command.user.create');
   }
-
-
-
 
   /**
    * Register routes, translations, views and publishers.
@@ -37,6 +32,5 @@ class GenericServiceProvider extends ServiceProvider
       App::register('\Spatie\Permission\PermissionServiceProvider');
 
       $router->middleware('can', \Askedio\Laravel5RBAC\Http\Middleware\Authorize::class);
-
   }
 }
