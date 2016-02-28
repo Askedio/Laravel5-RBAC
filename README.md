@@ -23,9 +23,10 @@ composer require askedio/laravel5-rbac:dev-master
    ...
 ~~~
 
-## Migrate
+## Set up auth views and migrations
 ~~~
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
+php artisan make:auth
 php artisan migrate 
 ~~~
 
