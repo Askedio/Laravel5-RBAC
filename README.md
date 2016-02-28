@@ -23,6 +23,16 @@ composer require askedio/laravel5-rbac:dev-master
    ...
 ~~~
 
+### Change your config/auth.php providers->users->model
+~~~
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => Askedio\Laravel5RBAC\User::class,
+        ],
+        ...
+~~~
+
 ### Set up auth views and migrations
 ~~~
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
